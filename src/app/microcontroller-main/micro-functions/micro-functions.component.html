@@ -1,0 +1,40 @@
+<div class="ui grid">
+
+
+  <form class="ui form custom_style_1"  (ngSubmit)="onSubmit(f)" #f ="ngForm">
+
+
+    <div class="field">
+      <label>Microcontroller Initialize Function</label>
+      <textarea
+        rows="4"
+        placeholder="Microcontroller Initialize Function"
+        ngModel
+        name="microcontrollerInitializeFunction"
+        required
+      >
+      </textarea>
+    </div>
+
+    <div class="field">
+      <select
+        ngModel
+        name="microcontrollerNetworkTechnology"
+        required
+      >
+        <option value="">Select Network Technology</option>
+        <option value="wifi">Wi-Fi</option>
+        <option value="lora">Lora</option>
+      </select>
+    </div>
+
+    <button
+      class="ui green button"
+      type="submit"
+      [disabled] ="!f.valid"
+    >
+      Add Microcontroller Function Data
+    </button>
+  </form>
+
+</div>

@@ -1,0 +1,41 @@
+<ngb-accordion #acc="ngbAccordion" style="width: 220px; border-radius: 5px" class="ui blue button button_size" [attr.data-tooltip]="microcontroller.microcontrollerDescription"
+    data-position="right center" [id]="microcontroller.microcontrollerId" draggable="true" (dragstart)="dragM($event)" (drag)="dragging($event)"
+    type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    <ngb-panel style="height: 10px;" [id]="microcontroller.microcontrollerId" [title]="microcontroller.microcontrollerDisplayName">
+        <ng-template ngbPanelContent>
+            <button class="btn btn-warning" (click)="deleteMC(microcontroller.microcontrollerId)">Delete</button>
+        </ng-template>
+    </ngb-panel>
+</ngb-accordion>
+<!-- <ngb-accordion #acc="ngbAccordion">
+    <ngb-panel [id]="microcontroller.microcontrollerId" [title]="microcontroller.microcontrollerDisplayName">
+        <ng-template ngbPanelContent>
+            <button class="btn btn-warning">Delete</button>
+        </ng-template>
+    </ngb-panel>
+</ngb-accordion> -->
+<!-- <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica,
+        craft beer labore wes anderson cred nesciunt sapiente ea proident.
+    </div>
+</div>
+
+<div class="panel-heading" role="tab" [id]="'heading'+microcontroller.microcontrollerId">
+    <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" [href]="'#collapse'+microcontroller.microcontrollerId" aria-expanded="true"
+            [attr.aria-controls]="'collapse'+microcontroller.microcontrollerId">
+            {{microcontroller.microcontrollerId}}
+        </a>
+    </h4>
+</div>
+<div [id]="'collapse'+microcontroller.microcontrollerId" class="panel-collapse collapse" role="tabpanel" [attr.aria-labelledby]="'heading'+microcontroller.microcontrollerId">
+    <div class="panel-body">
+        {{microcontroller.microcontrollerId}}
+    </div>
+</div> -->
+<!--[attr.data-tooltip]="microcontroller.microcontrollerDescription"-->
+<!--data-position="right center"-->
+
+<!--[attr.data-content]="microcontroller.microcontrollerDescription"-->
+<!--data-variation="wide"-->

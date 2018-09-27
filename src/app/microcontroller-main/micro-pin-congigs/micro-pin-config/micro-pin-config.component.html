@@ -1,0 +1,50 @@
+<div class="ui form" >
+  <div class="fields">
+    <div class="field">
+      <select
+        name="pinType"
+        #pinType
+        class="ui dropdown"
+        (change)="updatePinType($event)"
+      >
+        <option value="">Pin Type</option>
+        <option value="GPIO">GPIO</option>
+        <option value="ADC">ADC</option>
+        <!--<option value="RX">RX</option>-->
+        <!--<option value="TX">TX</option>-->
+        <option value="PWM">PWM</option>
+        <option value="HSPI_CS">HSPI_CS</option>
+        <option value="HSPI_MOSI">HSPI_MOSI</option>
+        <option value="HSPI_MISO">HSPI_MISO</option>
+        <option value="HSPI_CLK">HSPI_CLK</option>
+        <option value="SPI_CS">SPI_CS</option>
+        <option value="EXT_RSTB">EXT_RSTB</option>
+        <option value="CHIP_EN">CHIP_EN</option>
+        <option value="URXD_2">URXD_2</option>
+        <option value="UTXD_1">UTXD_1</option>
+        <option value="URXD_1">URXD_1</option>
+        <option value="UTXD_2">UTXD_2</option>
+        <option value="VCC">VCC</option>
+        <option value="GND">GND</option>
+
+      </select>
+    </div>
+    <div class="field" >
+      <input
+        type="text"
+        placeholder="Pin Map Number"
+        name="pinName"
+        #numberOfPins
+        (change)="updatePinName($event)"
+      >
+    </div>
+    <div class="field">
+      <button
+        class="ui red button"
+        (click)="onDelete()"
+      >
+        Delete Pin
+      </button>
+    </div>
+  </div>
+</div>

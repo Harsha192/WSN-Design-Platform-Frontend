@@ -1,0 +1,47 @@
+<div class="ui grid container">
+  <div class="three wide column"></div>
+
+  <div class="ten wide column">
+
+    <table class="ui celled striped table ">
+      <thead>
+        <tr>
+          <th colspan="2">
+            Code Download
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor=" let node of nodes">
+          <td class="collapsing custom_table">
+            {{node}}
+          </td>
+          <td class="custom_table">
+            <!-- <a class="ui green button custom_code_download" (click)="downloadCode()">
+              {{node}}
+            </a> -->
+            <button class="btn btn-primary" (click)="downloadCode(node)">
+              {{node}}
+            </button>
+          </td>
+
+        </tr>
+
+        <!--<tr>-->
+        <!--<td class="collapsing">-->
+        <!--Node A-->
+        <!--</td>-->
+        <!--<td>Node A</td>-->
+        <!--</tr>-->
+
+      </tbody>
+    </table>
+
+  </div>
+  <div class="three wide column"></div>
+</div>
+
+<!-- <button>
+  <a target="_self" href="http://192.168.1.101:8090/Firmware/test1.txt" download="test1.txt"> Download</a>
+</button> -->

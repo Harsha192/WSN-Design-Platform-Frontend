@@ -1,0 +1,18 @@
+.custom_style_1{
+  margin-left: 300px;
+  margin-top: 20px;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+input{
+  min-width: 600px;
+}
+form{
+  padding: 20px;
+  border:1px solid darkgray;
+  border-radius:6px;
+}
+
+

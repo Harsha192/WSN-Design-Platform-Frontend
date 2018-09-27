@@ -1,0 +1,47 @@
+<div class="ui grid ">
+
+
+  <form class="ui form custom_back"  (ngSubmit)="onSubmit(f)" #f ="ngForm">
+    <div class="field custom_style_1">
+      <label>Network Name</label>
+      <input
+        type="text"
+        placeholder="Network Name"
+        ngModel
+        name="NetworkName"
+        required
+      >
+    </div>
+
+    <div class="field custom_style_1">
+      <label>Maximum distance among nodes</label>
+      <input
+        type="number"
+        placeholder="Maximum distance (m)"
+        ngModel
+        name="maximumDistance"
+        required
+      >
+    </div>
+
+    <div class="field custom_style_1">
+      <label>Network Description</label>
+      <textarea
+        rows="3"
+        placeholder="Network Description"
+        ngModel
+        name="networkDescription"
+        required
+      >
+      </textarea>
+    </div>
+    <button
+      class="ui green button custom_style_1"
+      type="submit"
+      [disabled] ="!f.valid"
+    >
+      Create Network
+    </button>
+  </form>
+
+</div>

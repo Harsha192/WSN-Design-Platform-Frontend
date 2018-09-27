@@ -1,0 +1,23 @@
+.side_bar_custom{
+  border: 1px solid black;
+  border-radius:6px;
+
+  min-width: 220px;
+  min-height: 580px;
+
+  max-width: 260px;
+
+  padding: 20px;
+
+  margin-left: -25px;
+}
+
+.side_bar_title{
+  min-width: 220px;
+  min-height: 30px;
+
+  max-width: 230px;
+  max-height: 30px;
+
+  margin-bottom: 50px;
+}

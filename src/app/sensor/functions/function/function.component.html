@@ -1,0 +1,72 @@
+<div class="ui form custom_from_prop">
+
+  <div class="field">
+    <select
+      name="microcontrollerType"
+      class="ui dropdown"
+      (change)="updateMicrocontrollerType($event)" 
+    >
+      <option value="">Select Microcontroller Type</option>
+      <option *ngFor="let microcontroller of sensorList" value="{{microcontroller.display_name}}">{{microcontroller.display_name}}</option>
+      <!-- <option value="raspberryPi">Raspberry Pi</option> -->
+    </select>
+  </div>
+
+  <div class="field">
+    <label>Header Files</label>
+    <textarea
+      class="custom_TA_width"
+      rows="4"
+      placeholder="Enter Header Files"
+      name="headerFiles"
+      (change)="updateHeaderFiles($event)"
+    >
+      </textarea>
+  </div>
+
+  <div class="field">
+    <label>Global Variables</label>
+    <textarea
+      class="custom_TA_width"
+      rows="4"
+      placeholder="Enter Global Variables"
+      name="headerFiles"
+      (change)="updateGlobalVariables($event)"
+    >
+      </textarea>
+  </div>
+
+  <div class="field">
+    <label>Initialize Function</label>
+    <textarea
+      class="custom_TA_width"
+      rows="6"
+      placeholder="Enter Initialize Function"
+      name="initializeFunction"
+      (change)="updateInitializeFunction($event)"
+    >
+      </textarea>
+  </div>
+
+  <div class="field">
+    <label>Reading Function</label>
+    <textarea
+      class="custom_TA_width"
+      rows="6"
+      placeholder="Enter Reading Function"
+      name="readingFunction"
+      (change)="updateReadingFunction($event)"
+    >
+      </textarea>
+  </div>
+
+  <div class="field">
+    <button
+      class="ui red button"
+      (click)="onDelete()"
+    >
+      Delete Function Set
+    </button>
+  </div>
+
+</div>

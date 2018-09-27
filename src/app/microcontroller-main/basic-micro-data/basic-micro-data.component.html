@@ -1,0 +1,108 @@
+<div class="ui grid">
+
+
+  <form class="ui form custom_style_1"  (ngSubmit)="onSubmit(f)" #f ="ngForm">
+    <div class="field">
+      <label>Microcontroller Model Name</label>
+      <input
+        type="text"
+        placeholder="Microcontroller Model Name"
+        ngModel
+        name="microcontrollerModelName"
+        required
+      >
+    </div>
+    <div class="field">
+      <label>Microcontroller Display Name</label>
+      <input
+        type="text"
+        placeholder="Microcontroller Display Name"
+        ngModel
+        name="microcontrollerDisplayName"
+        required
+      >
+    </div>
+    <div class="field">
+      <label>Microcontroller Voltage</label>
+      <input
+        type="text"
+        placeholder="Microcontroller Voltage"
+        ngModel
+        name="microcontrollerVoltage"
+        required
+      >
+    </div>
+    <div class="field">
+      <label>Average Operating Current</label>
+      <input
+        type="text"
+        placeholder="Average Operating Current"
+        ngModel
+        name="averageOperatingCurrent"
+        required
+      >
+    </div>
+    <div class="field">
+      <label>Number of Sleep Levels</label>
+      <input
+        type="text"
+        placeholder="Number of Sleep Levels"
+        ngModel
+        name="numberOfSleepLevels"
+        required
+      >
+    </div>
+    <div class="field">
+      <label>Current for Sleep Levels</label>
+      <input
+        type="text"
+        placeholder="Current for Sleep Levels"
+        ngModel
+        name="currentForSleepLevels"
+        required
+      >
+    </div>
+    <div class="field">
+      <label>Time for Current Levels</label>
+      <input
+        type="text"
+        placeholder="Time for Current Levels"
+        ngModel
+        name="timeForCurrentLevels"
+        required
+      >
+    </div>
+
+    <!--<div class="field">-->
+      <!--<select-->
+        <!--ngModel-->
+        <!--name="microcontrollerLanguage"-->
+        <!--required-->
+      <!--&gt;-->
+        <!--<option value="">Select Compatible Language</option>-->
+        <!--<option value="c++">C++</option>-->
+        <!--<option value="python">Python</option>-->
+      <!--</select>-->
+    <!--</div>-->
+
+    <div class="field">
+      <label>Microcontroller Description</label>
+      <textarea
+        rows="2"
+        placeholder="Microcontroller Description"
+        ngModel
+        name="microcontrollerDescription"
+        required
+      >
+      </textarea>
+    </div>
+    <button
+      class="ui green button"
+      type="submit"
+      [disabled] ="!f.valid"
+    >
+      Add Basic Microcontroller Data
+    </button>
+  </form>
+
+</div>

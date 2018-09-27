@@ -1,0 +1,35 @@
+<div class="ui form" >
+  <div class="fields">
+    <div class="field">
+      <select
+        name="pinType"
+        #pinType
+        class="ui dropdown"
+        (change)="updatePinType($event)"
+      >
+        <option value="">Pin Type</option>
+        <option value="GND">GND</option>
+        <option value="VCC">VCC</option>
+        <option value="ANALOG_INPUT">ANALOG</option>
+        <option value="DIGITAL_INPUT">DIGITAL</option>
+      </select>
+    </div>
+    <div class="field" >
+      <input
+        type="number"
+        placeholder="Pin Map Number"
+        name="numberOfPins"
+        #numberOfPins
+        (change)="updateNoOfPins($event)"
+      >
+    </div>
+    <div class="field">
+      <button
+        class="ui red button"
+        (click)="onDelete()"
+      >
+        Delete Pin
+      </button>
+    </div>
+  </div>
+</div>

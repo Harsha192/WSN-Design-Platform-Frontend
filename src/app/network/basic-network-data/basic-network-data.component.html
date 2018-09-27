@@ -1,0 +1,85 @@
+<div class="ui grid">
+
+
+  <form class="ui form custom_style_1"  (ngSubmit)="onSubmit(f)" #f ="ngForm">
+    <div class="field">
+      <label>Network Device Model Name</label>
+      <input
+        type="text"
+        placeholder="Network Device Model Name"
+        ngModel
+        name="networkModelName"
+        required
+      >
+    </div>
+    <div class="field">
+      <label>Network Device Display Name</label>
+      <input
+        type="text"
+        placeholder="Network Device Display Name"
+        ngModel
+        name="networkDisplayName"
+        required
+      >
+    </div>
+    <!--<div class="field">-->
+      <!--<label>Network Device Rated Current</label>-->
+      <!--<input-->
+        <!--type="text"-->
+        <!--placeholder="Network Device Rated Current"-->
+        <!--ngModel-->
+        <!--name="networkRatedCurrent"-->
+        <!--required-->
+      <!--&gt;-->
+    <!--</div>-->
+    <!--<div class="field">-->
+      <!--<label>Required Power Supply</label>-->
+      <!--<input-->
+        <!--type="text"-->
+        <!--placeholder="Required Power Supply"-->
+        <!--ngModel-->
+        <!--name="networkRequiredPowerSupply"-->
+        <!--required-->
+      <!--&gt;-->
+    <!--</div>-->
+
+    <div class="field">
+
+      <div class="grouped fields">
+        <label>Select Hardware Enable or Not</label>
+        <div class="field" *ngFor="let hw of hardwarePlatforms">
+          <div class="ui radio checkbox">
+            <input type="radio"
+                   name="hardwarePlatform"
+                   checked="checked"
+                   ngModel
+                   [value]=hw
+            >
+            <label>{{hw}}</label>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Network Device Description</label>
+      <textarea
+        rows="2"
+        placeholder="Network Device Description"
+        ngModel
+        name="networkDescription"
+        required
+      >
+      </textarea>
+    </div>
+    <button
+      class="ui green button"
+      type="submit"
+      [disabled] ="!f.valid"
+    >
+      Add Basic Network Device Data
+    </button>
+  </form>
+
+</div>

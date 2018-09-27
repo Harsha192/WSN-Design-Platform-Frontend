@@ -1,0 +1,29 @@
+.custom_container{
+  width: 500px;
+  height: 500px;
+  border: 1px solid black;
+}
+
+.custom_svg{
+  width: 600px;
+  height: 600px;
+  border: 1px solid black;
+}
+
+.button_size{
+  margin: 5px;
+  padding: 10px;
+  min-width: 200px;
+  min-height: 35px;
+}
+
+.port {
+  stroke: #999;
+  stroke-width: 1;
+  fill: #ddd;
+  cursor: crosshair;
+}
+.port_hovered {
+  stroke: #ff7f0e;
+  fill: #ff7f0e;
+}

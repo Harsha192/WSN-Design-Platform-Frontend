@@ -1,0 +1,21 @@
+<div class="ui form inverted segment side_bar_custom">
+
+  <div class="field">
+    <label class="ui inverted olive button side_bar_title">Sensors</label>
+    <app-sensor-sidebar *ngFor="let sensor of sensors" [sensor]="sensor">
+    </app-sensor-sidebar>
+  </div>
+
+  <div class="field">
+    <label class="ui inverted olive button side_bar_title">Microcontrollers</label>
+    <app-microcontroller *ngFor="let microcontroller of microcontrollers" [microcontroller]="microcontroller">
+    </app-microcontroller>
+
+  </div>
+
+  <div class="field">
+    <label class="ui inverted olive button side_bar_title">Sensor Nodes</label>
+    <app-sensor-node *ngFor="let sensorNode of sensorNodes" [sensorNode]="sensorNode">
+    </app-sensor-node>
+  </div>
+</div>

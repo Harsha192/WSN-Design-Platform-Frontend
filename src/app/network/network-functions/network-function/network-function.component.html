@@ -1,0 +1,145 @@
+<div class="ui form custom_from_prop">
+
+  <div class="field">
+    <select
+      name="microcontrollerType"
+      class="ui dropdown"
+      (change)="updateMicrocontrollerType($event)"
+    >
+      <option value="">Select Microcontroller Type</option>
+      <option value="esp8266">ESP 8266</option>
+      <option value="raspberryPi">Raspberry Pi</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label>Includes </label>
+    <textarea
+      class="custom_TA_width"
+      rows="8"
+      placeholder="Enter Includes"
+      name="includesFunction"
+      (change)="updateIncludesFunction($event)"
+    >
+      </textarea>
+  </div>
+
+  <div class="field">
+    <label>Client Global Variable Initialization </label>
+    <textarea
+      class="custom_TA_width"
+      rows="8"
+      placeholder="Enter Client Global Variables"
+      name="clientGlobalVariableFunction"
+      (change)="updateClientGlobalVariableFunction($event)"
+    >
+      </textarea>
+  </div>
+
+
+  <div class="field">
+    <label>Server Global Variable Initialization </label>
+    <textarea
+      class="custom_TA_width"
+      rows="8"
+      placeholder="Enter Server Global Variables"
+      name="serverGlobalVariableFunction"
+      (change)="updateServerGlobalVariableFunction($event)"
+    >
+      </textarea>
+  </div>
+
+  <div class="field">
+    <label>Client Setup Functions </label>
+    <textarea
+      class="custom_TA_width"
+      rows="8"
+      placeholder="Enter Client Setup Functions"
+      name="clientSetupFunction"
+      (change)="updateClientSetupFunction($event)"
+    >
+      </textarea>
+  </div>
+
+  <div class="field">
+    <label>Server Setup Functions </label>
+    <textarea
+      class="custom_TA_width"
+      rows="8"
+      placeholder="Enter Server Setup Functions"
+      name="serverSetupFunction"
+      (change)="updateServerSetupFunction($event)"
+    >
+      </textarea>
+  </div>
+
+  <div class="field">
+    <label>Connecting Functions </label>
+    <textarea
+      class="custom_TA_width"
+      rows="8"
+      placeholder="Enter Connecting Functions"
+      name="connectingFunction"
+      (change)="updateConnectingFunction($event)"
+    >
+      </textarea>
+  </div>
+
+  <div class="field">
+    <label>Disconnecting Functions </label>
+    <textarea
+      class="custom_TA_width"
+      rows="8"
+      placeholder="Enter Disconnecting Functions"
+      name="disconnectingFunction"
+      (change)="updateDisconnectingFunction($event)"
+    >
+      </textarea>
+  </div>
+
+  <div class="field">
+    <label>Data Sending Functions </label>
+    <textarea
+      class="custom_TA_width"
+      rows="8"
+      placeholder="Enter Data Sending Functions"
+      name="dataSendingFunction"
+      (change)="updateDataSendingFunction($event)"
+    >
+      </textarea>
+  </div>
+
+  <div class="field">
+    <label>Data Receiving Functions </label>
+    <textarea
+      class="custom_TA_width"
+      rows="8"
+      placeholder="Enter Data Receiving Functions"
+      name="dataReceivingFunction"
+      (change)="updateDataReceivingFunction($event)"
+    >
+      </textarea>
+  </div>
+
+  <div class="field">
+    <label>Helper Functions </label>
+    <textarea
+      class="custom_TA_width"
+      rows="8"
+      placeholder="Enter Helper Functions"
+      name="helperFunction"
+      (change)="updateHelperFunction($event)"
+    >
+      </textarea>
+  </div>
+
+  <div class="field">
+    <button
+      class="ui red button"
+      (click)="onDelete()"
+    >
+      Delete Function Set
+    </button>
+  </div>
+
+</div>

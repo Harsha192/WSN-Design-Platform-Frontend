@@ -1,0 +1,16 @@
+<div class="ui very padded segment custom_power">
+  <p>Power Level : {{lineChartData1[lineChartData1.length -1]}} mW</p>
+
+  <canvas id="myChart" width="200" height="120" baseChart
+          [data]="lineChartData"
+          [labels]="lineChartLabels"
+          [chartType]="lineChartType"
+          (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)"></canvas>
+
+</div>
+
+<!--<div class="ui very padded segment custom_power">-->
+<!--<p>Power Level : {{lineChartData[lineChartData.length -1]}} mW</p> <button (click)="addDummy()">Test</button>-->
+<!--<canvas id="myChart" width="200" height="120"></canvas>-->
+<!--</div>-->

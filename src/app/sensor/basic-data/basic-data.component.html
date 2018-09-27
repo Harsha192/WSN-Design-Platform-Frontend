@@ -1,0 +1,39 @@
+<div class="ui grid">
+
+
+  <form class="ui form custom_style_1" (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="field">
+      <label>Sensor Model Name</label>
+      <input type="text" placeholder="Sensor Model Name" ngModel name="sensorModelName" required>
+    </div>
+    <div class="field">
+      <label>Sensor Display Name</label>
+      <input type="text" placeholder="Sensor Display Name" ngModel name="sensorDisplayName" required>
+    </div>
+    <div class="field">
+      <label>Time required to one sensor read</label>
+      <input type="text" placeholder="Time required to one sensor read" ngModel name="sensorReadTime" required>
+    </div>
+    <div class="field">
+      <label>Sensor Standby Current</label>
+      <input type="text" placeholder="Sensor Standby Current" ngModel name="sensorStandbyCurrent" required>
+    </div>
+    <div class="field">
+      <label>Sensor Active Current</label>
+      <input type="text" placeholder="Sensor Active Current" ngModel name="sensorActiveCurrent" required>
+    </div>
+    <div class="field">
+      <label>Sensor Voltage</label>
+      <input type="text" placeholder="Sensor Voltage" ngModel name="sensorVoltage" required>
+    </div>
+    <div class="field">
+      <label>Sensor Description</label>
+      <textarea rows="2" placeholder="Sensor Description" ngModel name="sensorDescription" required>
+      </textarea>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="!f.valid">
+      Add Basic Sensor Data
+    </button>
+  </form>
+
+</div>

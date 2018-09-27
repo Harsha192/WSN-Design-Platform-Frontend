@@ -1,0 +1,9 @@
+<div class="ui orange button button_size"
+     [attr.data-tooltip]="sensorNode.sensorNodeDescription"
+     data-position="right center"
+     [id] ="sensorNode.sensorNodeId"
+     draggable="true"
+     (dragstart)="dragM($event)"
+     (drag)="dragging($event)">
+  {{sensorNode.sensorNodeDisplayName}}
+</div>
