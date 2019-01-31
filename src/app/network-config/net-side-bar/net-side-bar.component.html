@@ -1,9 +1,10 @@
 <div class="ui form inverted segment side_bar_custom">
-
   <div class="field">
     <label class="ui inverted olive button side_bar_title">Sensor Nodes</label>
-    <app-net-sensor-node *ngFor="let sensorNode of sensorNodes"
-                     [sensorNode] = sensorNode>
+    <app-net-sensor-node
+      *ngFor="let sensorNode of sensorNodes"
+      [sensorNode]="sensorNode"
+    >
     </app-net-sensor-node>
   </div>
 </div>

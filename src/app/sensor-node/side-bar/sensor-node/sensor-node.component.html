@@ -1,9 +1,15 @@
-<div class="ui orange button button_size"
-     [attr.data-tooltip]="sensorNode.sensorNodeDescription"
-     data-position="right center"
-     [id] ="sensorNode.sensorNodeId"
-     draggable="true"
-     (dragstart)="dragM($event)"
-     (drag)="dragging($event)">
+<!-- <div class="ui orange button button_size" [attr.data-tooltip]="sensorNode.sensorNodeDescription" data-position="right center"
+  [id]="sensorNode.sensorNodeId" draggable="true" (dragstart)="dragM($event)" (drag)="dragging($event)">
   {{sensorNode.sensorNodeDisplayName}}
+</div> -->
+
+<div class="ml-1">
+  <button mdbBtn color="amber" style="width: 205px" class="waves-light" type="button" (click)="test.toggle()" [attr.data-tooltip]="sensorNode.sensorNodeDescription"
+    data-position="right center" [id]="sensorNode.sensorNodeId" draggable="true" (dragstart)="dragM($event)" (drag)="dragging($event)"
+    mdbWavesEffect> {{sensorNode.sensorNodeDisplayName}}
+  </button>
+
+  <div class="float-right" mdbCollapse #test="bs-collapse">
+    <button class="btn btn-warning" (click)="deleteSN(sensorNode.sensorNodeId)">Delete</button>
+  </div>
 </div>

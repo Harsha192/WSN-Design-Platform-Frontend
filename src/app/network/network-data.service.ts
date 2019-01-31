@@ -1,10 +1,11 @@
 import {Injectable} from "@angular/core";
 import {Http} from "@angular/http"
+import { SharedService } from "../shared/shared.service";
 
 @Injectable()
 export class NetworkDataService {
 
-  constructor(private http: Http) {}
+  constructor(private http: Http, private sharedService: SharedService) {}
 
   prepareNetworkData () {
     return {
@@ -46,7 +47,7 @@ export class NetworkDataService {
     let network = this.prepareNetworkData();
     console.log(network);
     // alert('Communication device Added Successfully');
-    this.http.post('http://192.168.8.102:8090/communication', network).subscribe(
+    this.http.post(this.sharedService.backendURL+'/communication', network).subscribe(
       (response) => {console.log(response); alert('Communication device Added Successfully')},
       (error) => console.log(error)
     );

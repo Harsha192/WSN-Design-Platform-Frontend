@@ -1,10 +1,14 @@
 <div class="ui grid ">
-
-
   <form class="ui form custom_back" (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div class="field custom_style_1">
       <label>Sensor Node Name</label>
-      <input type="text" placeholder="Sensor Node Name" ngModel name="sensorNodeName" required>
+      <input
+        type="text"
+        placeholder="Sensor Node Name"
+        ngModel
+        name="sensorNodeName"
+        required
+      />
     </div>
     <div class="field custom_style_1">
       <select ngModel name="sensorNodeType" required>
@@ -12,37 +16,62 @@
         <option value="base">Base Station</option>
         <option value="node">Node</option>
       </select>
-
     </div>
     <div class="field custom_style_1">
       <select ngModel name="sensorNodeCommunicationMethod" required>
         <option value="">Select Communication Method</option>
         <option value="wifi">WI-FI</option>
+        <option value="ESP8266">WI-FI for Node</option>
+        <option value="ESP8266 Base">WI-FI for Base</option>
         <option value="nRF24L01">nRF24L01</option>
       </select>
-
     </div>
     <div class="field custom_style_1">
-      <label>Data Sending Interval</label>
-      <input type="number" placeholder="Data Sending Interval" ngModel name="dataSendingInterval" required>
+      <label>Data Sensing Interval</label>
+      <input
+        type="number"
+        placeholder="Data Sensing Interval"
+        ngModel
+        name="dataSendingInterval"
+        required
+      />
     </div>
     <div class="field custom_style_1">
       <label>SSID of Connecting Network</label>
-      <input type="text" placeholder="SSID of Connecting Network" ngModel name="SSID">
+      <input
+        type="text"
+        placeholder="SSID of Connecting Network"
+        ngModel
+        name="SSID"
+      />
     </div>
     <div class="field custom_style_1">
       <label>Password of Connecting Network</label>
-      <input type="password" placeholder="Password of Connecting Network" ngModel name="SSIDPassword">
+      <input
+        type="password"
+        placeholder="Password of Connecting Network"
+        ngModel
+        name="SSIDPassword"
+      />
     </div>
     <div class="field custom_style_1">
       <label>Sensor Node Description</label>
-      <textarea rows="3" placeholder="Sensor Node Description" ngModel name="sensorNodeDescription" required>
+      <textarea
+        rows="3"
+        placeholder="Sensor Node Description"
+        ngModel
+        name="sensorNodeDescription"
+        required
+      >
       </textarea>
     </div>
-    <button class="ui green button custom_style_1" type="submit" [disabled]="!f.valid">
+    <button
+      class="ui green button custom_style_1"
+      type="submit"
+      [disabled]="!f.valid"
+    >
       Save Sensor Node
     </button>
   </form>
   <!--<button (click)="addPower()" >Test</button>-->
-
 </div>

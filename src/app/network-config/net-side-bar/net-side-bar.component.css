@@ -1,6 +1,6 @@
-.side_bar_custom{
+.side_bar_custom {
   border: 1px solid black;
-  border-radius:6px;
+  border-radius: 6px;
 
   min-width: 220px;
   min-height: 580px;
@@ -9,10 +9,10 @@
 
   padding: 20px;
 
-  margin-left: -25px;
+  margin-left: -20px;
 }
 
-.side_bar_title{
+.side_bar_title {
   min-width: 220px;
   min-height: 30px;
 

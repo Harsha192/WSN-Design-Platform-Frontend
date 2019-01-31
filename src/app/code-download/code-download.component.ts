@@ -22,7 +22,7 @@ export class CodeDownloadComponent implements OnInit {
 
   downloadCode(node) {
     this.http
-      .get("http://192.168.8.102:8090/Firmware", {
+      .get(this.sharedService.backendURL+ "/Firmware", {
         responseType: ResponseContentType.Blob
       })
       .map(res => {

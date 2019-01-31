@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { SensorNodeService } from "../../sensor-node.service";
+import { Router } from "@angular/router";
+import { ToastrService } from "ngx-toastr";
+
 declare var jQuery: any;
 
 @Component({
@@ -11,7 +14,11 @@ export class SensorSidebarComponent implements OnInit {
   @Input()
   sensor: any;
 
-  constructor(private sensorNodeService: SensorNodeService) {
+  constructor(
+    private sensorNodeService: SensorNodeService,
+    public route: Router,
+    private toastr: ToastrService
+  ) {
     jQuery(".icon.green.button.button_size").popup();
   }
 
@@ -29,10 +36,14 @@ export class SensorSidebarComponent implements OnInit {
 
   deleteS(sensorId) {
     console.log(sensorId.split("_")[1]);
-    this.sensorNodeService
-      .deleteSensor(sensorId.split("_")[1])
-      .subscribe(response => {
-        console.log(response);
-      });
+    this.sensorNodeService.deleteSensor(sensorId.split("_")[1]).subscribe(
+      res => {
+        console.log(res);
+        this.toastr.success("Sensor Deleted Succesfully.", "Sensor");
+      },
+      error => {
+        this.toastr.error("Error Deleting Sensor.", "Sensor");
+      }
+    );
   }
 }

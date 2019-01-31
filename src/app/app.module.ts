@@ -46,6 +46,17 @@ import { ChartsModule } from "ng2-charts";
 import { SharedService } from "./shared/shared.service";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { MDBBootstrapModule } from "angular-bootstrap-md";
+import { CommonModule } from "@angular/common";
+import { ToastrModule } from "ngx-toastr";
+import { NgProgressModule } from "ngx-progressbar";
+import { HomePageComponent } from "./home-page/home-page.component";
+import { SignupComponent } from "./signup/signup.component";
+// import { JwtModule } from "@auth0/angular-jwt";
+
+// export function tokenGetter() {
+//   return localStorage.getItem("id_token");
+// }
 
 @NgModule({
   declarations: [
@@ -87,7 +98,9 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     NetSideBarComponent,
     NetSensorNodeComponent,
     CodeDownloadComponent,
-    PowerComponent
+    PowerComponent,
+    HomePageComponent,
+    SignupComponent
   ],
   entryComponents: [
     PinConfigComponent,
@@ -103,7 +116,18 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     HttpModule,
     ChartsModule,
     BrowserAnimationsModule,
-    NgbModule
+    NgbModule,
+    MDBBootstrapModule.forRoot(),
+    CommonModule,
+    ToastrModule.forRoot(),
+    NgProgressModule
+    // JwtModule.forRoot({
+    //   config: {
+    //     tokenGetter: tokenGetter,
+    //     whitelistedDomains: ["localhost:3001"],
+    //     blacklistedRoutes: ["localhost:3001/auth/"]
+    //   }
+    // })
   ],
   providers: [SharedService],
   bootstrap: [AppComponent]

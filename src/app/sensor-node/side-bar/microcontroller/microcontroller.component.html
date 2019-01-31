@@ -1,4 +1,4 @@
-<ngb-accordion #acc="ngbAccordion" style="width: 220px; border-radius: 5px" class="ui blue button button_size" [attr.data-tooltip]="microcontroller.microcontrollerDescription"
+<!-- <ngb-accordion #acc="ngbAccordion" style="width: 220px; border-radius: 5px" class="ui blue button button_size" [attr.data-tooltip]="microcontroller.microcontrollerDescription"
     data-position="right center" [id]="microcontroller.microcontrollerId" draggable="true" (dragstart)="dragM($event)" (drag)="dragging($event)"
     type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
     <ngb-panel style="height: 10px;" [id]="microcontroller.microcontrollerId" [title]="microcontroller.microcontrollerDisplayName">
@@ -6,7 +6,20 @@
             <button class="btn btn-warning" (click)="deleteMC(microcontroller.microcontrollerId)">Delete</button>
         </ng-template>
     </ngb-panel>
-</ngb-accordion>
+</ngb-accordion> -->
+
+
+<div class="ml-1">
+    <button mdbBtn color="secondary" style="width: 205px" class="waves-light" type="button" (click)="test.toggle()" [attr.data-tooltip]="microcontroller.microcontrollerDescription"
+        data-position="right center" [id]="microcontroller.microcontrollerId" draggable="true" (dragstart)="dragM($event)" (drag)="dragging($event)"
+        mdbWavesEffect>
+        {{microcontroller.microcontrollerDisplayName}}
+    </button>
+
+    <div class="float-right" mdbCollapse #test="bs-collapse">
+        <button class="btn btn-warning" (click)="deleteMC(microcontroller.microcontrollerId)">Delete</button>
+    </div>
+</div>
 <!-- <ngb-accordion #acc="ngbAccordion">
     <ngb-panel [id]="microcontroller.microcontrollerId" [title]="microcontroller.microcontrollerDisplayName">
         <ng-template ngbPanelContent>

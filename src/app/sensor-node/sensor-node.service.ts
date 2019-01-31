@@ -1,12 +1,13 @@
 import { Injectable } from "@angular/core";
 import { Http } from "@angular/http";
 import { ContainerComponent } from "./container/container.component";
-
+import { SharedService } from "../shared/shared.service";
 @Injectable()
 export class SensorNodeService {
   // TODO : Using HTTP calls load data to sensors, microcontrollers and sensor nodes
 
   private configuration;
+  
 
   prepareSensorNodeData() {
     return {
@@ -35,8 +36,11 @@ export class SensorNodeService {
   }
 
   prepareCommunicationMethod(modelName: string) {
+    console.log(modelName);
     for (let comm of this.communicationTypes) {
+      console.log(comm.communicationType + ">>>>" + modelName);
       if (comm.communicationType == modelName) {
+        console.log(comm.communicationId);
         return comm.communicationId;
       }
     }
@@ -48,7 +52,7 @@ export class SensorNodeService {
     console.log(sensorNode);
 
     this.http
-      .post("http://192.168.8.102:8090/sensornode", sensorNode)
+      .post(this.sharedService.backendURL+"/sensornode", sensorNode)
       .subscribe(
         response => {
           console.log(response);
@@ -65,7 +69,7 @@ export class SensorNodeService {
   communicationTypes = [];
 
   getCommunicationTypesFromBackend() {
-    return this.http.get("http://192.168.8.102:8090/communication");
+    return this.http.get(this.sharedService.backendURL+"/communication");
   }
 
   addCommunicationFromBackend(comm: any) {
@@ -75,7 +79,7 @@ export class SensorNodeService {
     });
   }
 
-  constructor(private http: Http) {}
+  constructor(private http: Http, private sharedService: SharedService) {}
 
   // sensors array
   sensors = [
@@ -123,15 +127,15 @@ export class SensorNodeService {
   }
 
   getMicrocontrollersFromBackend() {
-    return this.http.get("http://192.168.8.102:8090/microcontroller");
+    return this.http.get(this.sharedService.backendURL+"/microcontroller");
   }
 
   getSensorsFromBackend() {
-    return this.http.get("http://192.168.8.102:8090/sensors");
+    return this.http.get(this.sharedService.backendURL+"/sensors");
   }
 
   getSensorNodesFromBackend() {
-    return this.http.get("http://192.168.8.102:8090/sensornode");
+    return this.http.get(this.sharedService.backendURL+"/sensornode");
   }
 
   //sensor node helper data
@@ -157,6 +161,7 @@ export class SensorNodeService {
   }
 
   getSensorNodeHelperData(object: any) {
+    console.log(object);
     this.sensorNodeHelperData.push({
       SSID: object.SSID,
       SSIDPassword: object.SSIDPassword,
@@ -199,6 +204,20 @@ export class SensorNodeService {
 
   deleteSensor(sensorId) {
     console.log(sensorId);
-    return this.http.delete("http://192.168.8.102:8090/sensors/" + sensorId);
+    return this.http.delete(this.sharedService.backendURL+"/sensors/" + sensorId);
+  }
+  deleteMicrocontroller(microcontrollerId) {
+    console.log(microcontrollerId);
+    return this.http.delete(
+      this.sharedService.backendURL+"/microcontroller/" + microcontrollerId
+    );
+  }
+  deleteSensorNode(sensorNodeId) {
+    return this.http.delete(
+      this.sharedService.backendURL+"/sensornode/" + sensorNodeId
+    );
+  }
+  getCommunicationMethods() {
+    return this.http.get(this.sharedService.backendURL+"/communication/");
   }
 }

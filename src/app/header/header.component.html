@@ -1,21 +1,207 @@
-<div class="ui inverted menu">
-  <a class="item custom_prop" routerLinkActive="active" routerLink="/sensor-node">
-    <i class="home icon"></i>
-    WSN Design Studio
-  </a>
-  <a class="item"   routerLinkActive="active" routerLink="/network-config">
-    Configure Network
-  </a>
-  <a class="item "  routerLinkActive="active" routerLink="/add-microcontroller/basic">
-    Add Microcontroller
-  </a>
-  <a class="item "  routerLinkActive="active" routerLink="/add-sensor/basic">
-    Add Add Sensor
-  </a>
-  <a class="item "  routerLinkActive="active" routerLink="/add-network/basic" >
-    Add Network Technology
-  </a>
-  <a class="item" routerLinkActive="active" routerLink="/about">
-    About Us
-  </a>
-</div>
+<!--
+  <div class="ui inverted menu">
+    <a class="item custom_prop" routerLinkActive="active" routerLink="/sensor-node">
+      <i class="home icon"></i>
+      WSN Design Studio
+    </a>
+    <a class="item" routerLinkActive="active" routerLink="/network-config">
+      Configure Network
+    </a>
+    <a class="item " routerLinkActive="active" routerLink="/add-microcontroller/basic">
+      Add Microcontroller
+    </a>
+    <a class="item " routerLinkActive="active" routerLink="/add-sensor/basic">
+      Add Sensor
+    </a>
+    <a class="item " routerLinkActive="active" routerLink="/add-network/basic">
+      Add Network Technology
+    </a>
+    <a class="item" routerLinkActive="active" routerLink="/about">
+      About Us
+    </a>
+  </div>
+-->
+
+<!-- Navbar -->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo">
+  <!-- Navbar brand -->
+  <mdb-navbar-brand
+    ><a class="navbar-brand" routerLinkActive="active" routerLink="/home"
+      ><i class="home icon mr-2"></i>WSN Design Studio</a
+    ></mdb-navbar-brand
+  >
+
+  <!-- Collapsible content -->
+  <links>
+    <span class="space"></span>
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a
+          class="nav-link waves-light"
+          routerLinkActive="active"
+          routerLink="/sensor-node"
+          mdbWavesEffect
+          >Configure Sensor Node
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link waves-light"
+          routerLinkActive="active"
+          routerLink="/network-config"
+          mdbWavesEffect
+          >Configure Network</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link waves-light"
+          routerLinkActive="active"
+          routerLink="/add-microcontroller/basic"
+          mdbWavesEffect
+          >Add Microcontroller
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link waves-light"
+          routerLinkActive="active"
+          routerLink="/add-sensor/basic"
+          mdbWavesEffect
+          >Add Sensor</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link waves-light"
+          routerLinkActive="active"
+          routerLink="/add-network/basic"
+          mdbWavesEffect
+          >Add Network Technology
+        </a>
+      </li>
+
+      <li
+        *ngIf="this.login.loggedIn()"
+        class="nav-item dropdown ml-2"
+        dropdown
+        style="background-color: purple; border-radius: 3px; margin-right: -22px"
+      >
+        <a
+          dropdownToggle
+          mdbWavesEffect
+          type="button"
+          class="nav-link dropdown-toggle waves-light"
+          mdbWavesEffect
+        >
+          <img
+            src="https://www.allsportsphysio.com.au/wp-content/uploads/2016/11/dummy-profile-pic-male1-300x300.jpg"
+            style="width: 25px; border-radius: 20px; margin-right: 10px;"/>
+          {{ this.login.user }}<span class="caret"></span
+        ></a>
+
+        <div
+          *dropdownMenu
+          class="dropdown-menu dropdown dropdown-primary"
+          role="menu"
+        >
+          <a
+            class="dropdown-item waves-light"
+            mdbWavesEffect
+            routerLink="/users"
+          >
+            <i class="far fa-user-circle" style="margin-right: 15px"></i>View
+            Profile</a
+          >
+
+          <a
+            class="dropdown-item waves-light"
+            mdbWavesEffect
+            routerLink="/users/Messages"
+          >
+            <i class="far fa-envelope" style="margin-right: 15px"></i
+            >Messages</a
+          >
+          <a
+            *ngIf="profile"
+            [routerLink]="['/users/profile', profile.name]"
+            class="dropdown-item waves-light"
+            mdbWavesEffect
+            routerLink=""
+          >
+            <i class="fas fa-cog" style="margin-right: 15px"></i>Settings</a
+          >
+          <div class="divider dropdown-divider"></div>
+          <a
+            class="dropdown-item waves-light"
+            (click)="this.login.logout()"
+            mdbWavesEffect
+          >
+            <i class="fas fa-sign-out-alt" style="margin-right: 15px"></i
+            >Logout</a
+          >
+        </div>
+      </li>
+
+      <div class="row" style="margin-right: -90px; margin-left: 31px">
+        <li class="nav-item">
+          <a class="nav-link waves-light" mdbWavesEffect>
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" mdbWavesEffect>
+            <i class="fab fa-twitter"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-light" mdbWavesEffect>
+            <i class="fab fa-google-plus"></i>
+          </a>
+        </li>
+      </div>
+
+      <!-- Dropdown -->
+      <!--
+        <li class="nav-item dropdown" dropdown>
+          <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+            Basic dropdown<span class="caret"></span></a>
+          <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+            <a class="dropdown-item waves-light" mdbWavesEffect href="#">Action</a>
+            <a class="dropdown-item waves-light" mdbWavesEffect href="#">Another action</a>
+            <a class="dropdown-item waves-light" mdbWavesEffect href="#">Something else here</a>
+            <div class="divider dropdown-divider"></div>
+            <a class="dropdown-item waves-light" mdbWavesEffect href="#">Separated link</a>
+          </div>
+        </li>
+      -->
+    </ul>
+    <!--
+      <div class="float-right" style="margin-right: -87px">
+        <a class="nav-link waves-light" href="#">
+          <i class="fab fa-facebook-square"></i>
+        </a>
+        <a class="nav-link waves-light" href="#">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a class="nav-link waves-light" href="#">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    -->
+
+    <!-- Links -->
+
+    <!-- Search form -->
+    <!--
+      <form class="form-inline waves-light" mdbWavesEffect>
+        <div class="md-form mt-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search">
+        </div>
+      </form>
+    -->
+  </links>
+  <!-- Collapsible content -->
+</mdb-navbar>
+<!-- /.Navbar -->

@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { SensorNodeService } from "../../sensor-node.service";
+import { ToastrService } from "ngx-toastr";
+
 declare var jQuery: any;
 
 @Component({
@@ -11,7 +13,10 @@ export class MicrocontrollerComponent implements OnInit {
   @Input()
   microcontroller: any;
   microcontrollers = null;
-  constructor(private sensorNodeService: SensorNodeService) {
+  constructor(
+    private sensorNodeService: SensorNodeService,
+    private toastr: ToastrService
+  ) {
     jQuery(".ui.icon.blue.button.button_size").popup();
   }
 
@@ -30,6 +35,17 @@ export class MicrocontrollerComponent implements OnInit {
   }
 
   deleteMC(microcontrollerId) {
-    console.log(this.microcontrollers);
+    console.log(microcontrollerId.split("_")[1]);
+    this.sensorNodeService
+      .deleteMicrocontroller(microcontrollerId.split("_")[1])
+      .subscribe(
+        res => {
+          console.log(res);
+          this.toastr.success("Sensor Deleted Succesfully.", "Sensor");
+        },
+        error => {
+          this.toastr.error("Error Deleting Sensor.", "Sensor");
+        }
+      );
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { SensorNodeService } from "../sensor-node.service";
 import { Http } from "@angular/http";
+import { SharedService } from "../../shared/shared.service";
 declare var jQuery: any;
 declare var d3: any;
 
@@ -22,7 +23,8 @@ export class ContainerComponent implements OnInit {
 
   constructor(
     private sensorNodeService: SensorNodeService,
-    private http: Http
+    private http: Http,
+    private sharedService: SharedService
   ) {}
 
   ngOnInit() {
@@ -102,7 +104,7 @@ export class ContainerComponent implements OnInit {
 
     jQuery.ajax({
       type: "POST",
-      url: "http://192.168.8.102:8090/validation",
+      url: this.sharedService.backendURL+"/validation",
       contentType: "application/json",
       data: JSON.stringify(obj),
       success: res => {
