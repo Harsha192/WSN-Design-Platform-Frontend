@@ -25,7 +25,7 @@ export class ContainerComponent implements OnInit {
     private sensorNodeService: SensorNodeService,
     private http: Http,
     private sharedService: SharedService
-  ) {}
+  ) { }
 
   ngOnInit() {
     ContainerComponent.myCanvas = d3
@@ -98,13 +98,13 @@ export class ContainerComponent implements OnInit {
       obj["id"] = ContainerComponent.userId;
       obj["node_power"] =
         ContainerComponent.powerLevels[
-          ContainerComponent.powerLevels.length - 1
+        ContainerComponent.powerLevels.length - 1
         ];
     }
 
     jQuery.ajax({
       type: "POST",
-      url: this.sharedService.backendURL+"/validation",
+      url: "http://192.168.8.100:8090/validation",
       contentType: "application/json",
       data: JSON.stringify(obj),
       success: res => {
@@ -121,12 +121,12 @@ export class ContainerComponent implements OnInit {
 
   static draw_line = d3.behavior
     .drag()
-    .on("dragstart", function(d) {
+    .on("dragstart", function (d) {
       console.log("draw line" + d3.event.sourceEvent);
       // Starting drawing line
       ContainerComponent.myCanvas
         .append("line")
-        .attr("id", function() {
+        .attr("id", function () {
           ContainerComponent.lineId++;
           return "line_" + ContainerComponent.lineId;
         })
@@ -138,7 +138,7 @@ export class ContainerComponent implements OnInit {
         .attr("stroke", d3.rgb("#B2BEB5"))
         .attr("stroke-width", 4);
     })
-    .on("dragend", function(d) {
+    .on("dragend", function (d) {
       // finish line
       ContainerComponent.myCanvas
         .select("#line_" + ContainerComponent.lineId)
@@ -166,7 +166,7 @@ export class ContainerComponent implements OnInit {
     // draw main square
     node
       .append("rect")
-      .attr("id", function(d) {
+      .attr("id", function (d) {
         return d.data.id;
       })
       .attr("class", "button_size")
@@ -177,7 +177,7 @@ export class ContainerComponent implements OnInit {
       .attr("y", event.clientY - 70)
       .attr("width", 200)
       .attr("height", 35)
-      .attr("fill", function(d) {
+      .attr("fill", function (d) {
         return d3.rgb(d.data.color);
       });
 
@@ -186,7 +186,7 @@ export class ContainerComponent implements OnInit {
       .append("text")
       .attr("x", event.clientX - 400 + 70)
       .attr("y", event.clientY - 70 + 20)
-      .text(function(d) {
+      .text(function (d) {
         return d.data.name;
       })
       .attr("fill", d3.rgb("#fff"))
@@ -195,7 +195,7 @@ export class ContainerComponent implements OnInit {
     // add connecting point to node and add draw line functionality
     node
       .append("rect")
-      .attr("id", function(d) {
+      .attr("id", function (d) {
         return d.data.id;
       })
       .attr("x", event.clientX - 400 - 5)
